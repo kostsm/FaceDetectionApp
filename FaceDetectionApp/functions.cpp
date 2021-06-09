@@ -5,9 +5,10 @@ void showVideo(VideoCapture& vid, const string& win, CascadeClassifier& face, Ca
     Mat frame;
     vid >> frame;
 
-    highligthParts(frame, face, eye);
-
-    imshow(win, frame);
+    if (!frame.empty()) {
+        highligthParts(frame, face, eye);
+        imshow(win, frame);
+    }
 }
 
 void highligthParts(Mat& field, CascadeClassifier& face, CascadeClassifier& eye) {
@@ -29,7 +30,7 @@ void highligthParts(Mat& field, CascadeClassifier& face, CascadeClassifier& eye)
         Scalar faceColor = Scalar(255, 255, 0);
 
         rectangle(field, Point(cvRound(area.x * scale), cvRound(area.y * scale)),
-            Point(cvRound((area.x + area.width - 1) * scale), cvRound((area.y + area.height - 1) * scale)), faceColor, 2);
+                  Point(cvRound((area.x + area.width - 1) * scale), cvRound((area.y + area.height - 1) * scale)), faceColor, 2);
 
         for (Rect zone : eyes) {
 
