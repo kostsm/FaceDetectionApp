@@ -1,5 +1,5 @@
 # FaceDetectionApp 
-**Application for android for scanning and creating QR-codes**  
+**Desktop application for face recognition in images or videos (in image stream)**  
   
 ***Features:***
 * Web-camera recognition
